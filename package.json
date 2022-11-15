@@ -1,0 +1,14 @@
+{
+  "name": "emanate",
+  "version": "0.0.0 --beta",
+  "description": "Emanate - Connect with your friends and people!",
+  "main": "src/index.js",
+  "scripts": {
+    "start": "electron ."
+  },
+  "author": "AbubakarKang",
+  "license": "ISC",
+  "dependencies": {
+    "electron": "^19.1.5"
+  }
+}
