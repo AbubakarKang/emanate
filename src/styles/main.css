@@ -1,4 +1,6 @@
 body {
+    margin: 0;
     /* Test code, to be removed */
     background: white;
+    -webkit-app-region: no-drag;
 }
