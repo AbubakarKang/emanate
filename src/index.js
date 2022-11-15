@@ -1,6 +1,7 @@
 //---------------------------\\ IMPORTS //---------------------------\\
 
 const { app, BrowserWindow, ipcMain } = require("electron");
+const ejsElectron = require("ejs-electron");
 const path = require("path");
 const ipc = ipcMain;
 
@@ -12,13 +13,18 @@ const createWindow = () => {
 		width: 400,
 		height: 500,
 		frame: false,
+		minWidth: 400,
+		minHeight: 500,
+		resizable: true,
+		transparent: true,
+		autoHideMenuBar: true,
 		webPreferences: {
 			nodeIntegration: true,
 			contextIsolation: false,
 		},
 	});
 
-	mainWindow.loadURL(path.join(__dirname, "views/index.html"));
+	mainWindow.loadURL(path.join(__dirname, "views/main.ejs"));
 };
 
 //------------------------\\ APP FUNCTIONS //------------------------\\
