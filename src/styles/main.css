@@ -9,3 +9,9 @@ body {
     -webkit-app-region: no-drag;
     background: var(--dark-color);
 }
+
+.main-elements {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}

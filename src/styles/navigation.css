@@ -1,0 +1,11 @@
+nav {
+    bottom: 0;
+    width: 100vw;
+    display: flex;
+    height: 50px;
+    position: fixed;
+    align-items: center;
+    color: var(--light-color);
+    background: var(--main-color);
+    justify-content: space-between;
+}

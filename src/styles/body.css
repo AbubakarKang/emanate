@@ -1,0 +1,7 @@
+.body-elements {
+    width: 100vw;
+    position: fixed;
+    margin-top: 25px;
+    height: calc(100vh - 75px);
+    background: var(--dark-color);
+}
