@@ -1,6 +1,6 @@
 //---------------------------\\ IMPORTS //---------------------------\\
 
-const { app, BrowserWindow, ipcMain } = require("electron");
+const { app, BrowserWindow, ipcMain, screen } = require("electron");
 const ejsElectron = require("ejs-electron");
 const path = require("path");
 const ipc = ipcMain;
@@ -9,12 +9,13 @@ const ipc = ipcMain;
 
 // Creating browser window
 const createWindow = () => {
+	screenDimention = screen.getPrimaryDisplay().workAreaSize;
 	const mainWindow = new BrowserWindow({
-		width: 400,
-		height: 500,
+		width: screenDimention.width,
+		height: screenDimention.height,
 		frame: false,
-		minWidth: 400,
-		minHeight: 500,
+		minWidth: 800,
+		minHeight: 450,
 		resizable: true,
 		transparent: true,
 		autoHideMenuBar: true,
