@@ -17,7 +17,6 @@ const createWindow = () => {
 		minWidth: 800,
 		minHeight: 450,
 		resizable: true,
-		transparent: true,
 		autoHideMenuBar: true,
 		webPreferences: {
 			nodeIntegration: true,
