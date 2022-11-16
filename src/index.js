@@ -25,6 +25,16 @@ const createWindow = () => {
 	});
 
 	mainWindow.loadURL(path.join(__dirname, "views/main.ejs"));
+
+	ipc.on("closeApp", () => mainWindow.close());
+	ipc.on("maximizeApp", () => {
+		if (mainWindow.isMaximized()) {
+			mainWindow.unmaximize();
+		} else {
+			mainWindow.maximize();
+		}
+	});
+	ipc.on("minimizeApp", () => mainWindow.minimize());
 };
 
 //------------------------\\ APP FUNCTIONS //------------------------\\
