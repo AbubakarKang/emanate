@@ -23,6 +23,7 @@ const createWindow = () => {
 			contextIsolation: false,
 		},
 	});
+	mainWindow.maximize();
 
 	mainWindow.loadURL(path.join(__dirname, "views/main.ejs"));
 
