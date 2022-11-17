@@ -3,3 +3,6 @@ node_modules
 
 # Large file + unncessary
 package-lock.json
+
+# Contains confedential data
+.env
