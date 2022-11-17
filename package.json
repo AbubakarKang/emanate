@@ -11,6 +11,7 @@
   "dependencies": {
     "dotenv": "^16.0.3",
     "ejs-electron": "^2.1.1",
-    "electron": "^19.1.5"
+    "electron": "^19.1.5",
+    "mongoose": "^6.7.2"
   }
 }
