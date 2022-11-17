@@ -23,10 +23,11 @@ const createWindow = () => {
 			contextIsolation: false,
 		},
 	});
+	// Maximize window on load
 	mainWindow.maximize();
-
+	// Load main.ejs file when the app starts
 	mainWindow.loadURL(path.join(__dirname, "views/main.ejs"));
-
+	// Handles the titlebar buttons on the right side
 	ipc.on("closeApp", () => mainWindow.close());
 	ipc.on("maximizeApp", () => {
 		if (mainWindow.isMaximized()) {
