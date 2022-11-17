@@ -1,7 +1,7 @@
 {
   "name": "emanate",
   "version": "0.0.0 --beta",
-  "description": "Emanate - Connect with your friends and people!",
+  "description": "Just another social networking platform",
   "main": "src/index.js",
   "scripts": {
     "start": "electron ."
