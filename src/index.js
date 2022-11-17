@@ -3,6 +3,7 @@
 require("dotenv").config();
 
 const { app, BrowserWindow, ipcMain, screen } = require("electron");
+const Message = require("./schemas/messages");
 const ejsElectron = require("ejs-electron");
 const mongoose = require("mongoose");
 const path = require("path");
@@ -28,8 +29,10 @@ const createWindow = () => {
 	});
 	// Maximize window on load
 	mainWindow.maximize();
+
 	// Load main.ejs file when the app starts
 	mainWindow.loadURL(path.join(__dirname, "views/main.ejs"));
+
 	// Handles the titlebar buttons on the right side
 	ipc.on("closeApp", () => mainWindow.close());
 	ipc.on("maximizeApp", () => {
@@ -40,6 +43,14 @@ const createWindow = () => {
 		}
 	});
 	ipc.on("minimizeApp", () => mainWindow.minimize());
+
+	// Log a new message into database
+	ipc.on("logMessage", (_, data) => {
+		let newMessage = new Message({
+			message: data.message,
+		});
+		newMessage.save();
+	});
 
 	// Connect to mongoose database
 	mongoose.connect(process.env.DATABASE_URL, { useNewUrlParser: true });

@@ -6,9 +6,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../styles/main.css">
     <link rel="stylesheet" href="../styles/body-styles/chat.css">
+    <script defer src="../script/body-scripts/chat.js"></script>
+    <script src="https://kit.fontawesome.com/b20d558793.js" crossorigin="anonymous"></script>
 </head>
 <body>
     <div data-chat-page class="chat">
+        <div data-messages-div class="messages">
+        </div>
+        <div class="inputs">
+            <input data-message-input type="text" name="message" id="message">
+            <button>
+                <i data-send-message-button class="fa-solid fa-circle-arrow-right"></i>
+            </button>
+        </div>
     </div>
 </body>
 </html>
