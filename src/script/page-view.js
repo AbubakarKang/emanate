@@ -26,6 +26,8 @@ chatNavBtn.addEventListener("click", () => {
 	cliquePage.style.zIndex = "1";
 	discoverPage.style.zIndex = "1";
 	settingsPage.style.zIndex = "1";
+
+	ipc.send("retrieveMessages");
 });
 
 // Prioritize discover page and making the other pages invisible

@@ -17,3 +17,11 @@ sendMessageBtn.addEventListener("click", () => {
 	messagesDiv.appendChild(messageParagraph);
 	messageInput.value = "";
 });
+
+ipc.on("retrievedMessages", (_, data) => {
+	data.forEach(message => {
+		let messageParagraph = document.createElement("p");
+		messageParagraph.innerText = message;
+		messagesDiv.appendChild(messageParagraph);
+	});
+});
