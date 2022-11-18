@@ -13,14 +13,20 @@ sendMessageBtn.addEventListener("click", () => {
 		message,
 	});
 	let messageParagraph = document.createElement("p");
+	messageParagraph.classList.add("message-paragraph");
 	messageParagraph.innerText = message;
 	messagesDiv.appendChild(messageParagraph);
 	messageInput.value = "";
 });
 
 ipc.on("retrievedMessages", (_, data) => {
+	let previousMessages = document.querySelectorAll(".message-paragraph");
+	previousMessages.forEach(msg => {
+		msg.remove();
+	});
 	data.forEach(message => {
 		let messageParagraph = document.createElement("p");
+		messageParagraph.classList.add("message-paragraph");
 		messageParagraph.innerText = message;
 		messagesDiv.appendChild(messageParagraph);
 	});

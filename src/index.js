@@ -34,13 +34,13 @@ const createWindow = () => {
 	mainWindow.loadURL(path.join(__dirname, "views/main.ejs"));
 
 	// Find all messages in database
-	Message.find({}, (err, msgs) => {
-		allMsgs = [];
-		msgs.forEach(msg => {
-			let message = msg.message;
-			allMsgs.push(message);
-		});
-	});
+	// Message.find({}, (err, msgs) => {
+	// 	allMsgs = [];
+	// 	msgs.forEach(msg => {
+	// 		let message = msg.message;
+	// 		allMsgs.push(message);
+	// 	});
+	// });
 
 	// Handles the titlebar buttons on the right side
 	ipc.on("closeApp", () => mainWindow.close());
@@ -62,7 +62,14 @@ const createWindow = () => {
 	});
 
 	ipc.on("retrieveMessages", (event, _) => {
-		event.sender.send("retrievedMessages", allMsgs);
+		Message.find({}, (err, msgs) => {
+			allMsgs = [];
+			msgs.forEach(msg => {
+				let message = msg.message;
+				allMsgs.push(message);
+			});
+			event.sender.send("retrievedMessages", allMsgs);
+		});
 	});
 
 	// Connect to mongoose database
