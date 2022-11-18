@@ -33,15 +33,6 @@ const createWindow = () => {
 	// Load main.ejs file when the app starts
 	mainWindow.loadURL(path.join(__dirname, "views/main.ejs"));
 
-	// Find all messages in database
-	// Message.find({}, (err, msgs) => {
-	// 	allMsgs = [];
-	// 	msgs.forEach(msg => {
-	// 		let message = msg.message;
-	// 		allMsgs.push(message);
-	// 	});
-	// });
-
 	// Handles the titlebar buttons on the right side
 	ipc.on("closeApp", () => mainWindow.close());
 	ipc.on("maximizeApp", () => {
