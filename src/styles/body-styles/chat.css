@@ -8,7 +8,8 @@
 .messages {
     width: 100%;
     position: fixed;
-    height: calc(100% - 55px);
+    overflow-y: scroll;
+    height: calc(100% - 5px);
     background: var(--dark-color);
 }
 
