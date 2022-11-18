@@ -12,9 +12,12 @@ sendMessageBtn.addEventListener("click", () => {
 	ipc.send("logMessage", {
 		message,
 	});
+});
+
+ipc.on("displayNewMessage", (_, data) => {
 	let messageParagraph = document.createElement("p");
 	messageParagraph.classList.add("message-paragraph");
-	messageParagraph.innerText = message;
+	messageParagraph.innerText = data;
 	messagesDiv.appendChild(messageParagraph);
 	messageInput.value = "";
 });

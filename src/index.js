@@ -45,11 +45,13 @@ const createWindow = () => {
 	ipc.on("minimizeApp", () => mainWindow.minimize());
 
 	// Log a new message into database
-	ipc.on("logMessage", (_, data) => {
+	ipc.on("logMessage", (event, data) => {
+		let receivedMessage = data.message;
 		let newMessage = new Message({
-			message: data.message,
+			message: receivedMessage,
 		});
 		newMessage.save();
+		event.sender.send("displayNewMessage", receivedMessage);
 	});
 
 	ipc.on("retrieveMessages", (event, _) => {
